@@ -40,15 +40,17 @@ function game() {
   let tie = 0;
 
   for (let i = 0; i < 5; i++) {
-    let round = playRound(playerPlay(), computerPlay());
+    let playerMove = playerPlay();
+    let computerMove = computerPlay();
+    let round = playRound(playerMove, computerMove);
     if (round === "win") {
-      console.log("you win this round");
+      console.log(`you win this round ${playerMove} beats ${computerMove}`);
       wins += 1;
     } else if (round === "lose") {
-      console.log("you lose this round");
+      console.log(`you lose this round ${computerMove} beats ${playerMove}`);
       lose += 1;
     } else {
-      console.log("tie this round");
+      console.log(`tie this round ${playerMove} against ${computerMove}`);
       tie += 1;
     }
   }
